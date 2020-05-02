@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Gaidot dzimšanas dienu.</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/stils.css" />
+        <script>
+            function dienas(){
+                var today = new Date();
+                var diena = document.getElementById("diena").value;
+                var menesis = document.getElementById("menesis").value;
+                var gads = document.getElementById("gads").value;
+                var birthday = new Date(gads, menesis - 1, diena);
+                var dienas = Math.abs(birthday-today);
+                document.getElementById("dienas").appendChild(dienas);
+            };
+        </script>
+    </head>
+    <body>
+        <h2>Gaidot dzimšanas dienu.</h2>
+        <hr>
+        <form>
+            <p>Ievadi pilnu datumu, kad Tev būs tuvākā dzimšanas diena</p>
+            <label for="gads">Gads:</label><br>
+            <input type="text" id="gads" name="gads" /><br>
+            <label for="menesis">Mēnesis:</label><br>
+            <input type="text" id="menesis" name="menesis" /><br>
+            <label for="diena">Diena:</label><br>
+            <input type="text" id="diena" name="diena" /><br><br>
+            <input type="button" onclick="dienas();" name="poga" value="Aprēķināt dienu skaitu līdz dzimšanas dienai">
+            <br><br>
+            Līdz svētkiem atlikušas <input type="text" id="dienas" name="dienas" value="" /> dienas :))
+        </form>
+    </body>
+</html>
